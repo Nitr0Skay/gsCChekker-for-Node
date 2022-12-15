@@ -1,0 +1,15 @@
+{
+  "name": "gscchekkerfornode",
+  "version": "1.0.0",
+  "description": "Google Search Console Tool in Node Console",
+  "main": "gsCChekker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nitr0Skay",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "puppeteer": "^19.4.0"
+  }
+}

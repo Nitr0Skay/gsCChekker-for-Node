@@ -10,14 +10,20 @@ async function gscVerification(url) {
     return Promise.resolve(isGSC);
 }
 
-const prompt = require("prompt-sync")({sigint: true});
-let url = prompt("Please, give the URL of the Site: ");
+// const prompt = require("prompt-sync")({sigint: true});
+// let url = prompt("Please, give the URL of the Site: ");
 
-const x = gscVerification(url);
-x.then((resolve) => {
-     if(resolve) {
-        console.log('This site has Google Search Console Tool');
-     } else {
-        console.log('This site probably has not Google Search Console Tool');
-     }
+process.stdout.write('Please, give the URL of the Site: ');
+process.stdin.on('readable', () => {
+   const input = process.stdin.read();
+   const url = new URL(input.toString().trim());
+   const x = gscVerification(url);
+         x.then((resolve) => {
+            if(resolve) {
+               console.log('This site has Google Search Console Tool');
+            } else {
+               console.log('This site probably has not Google Search Console Tool');
+         }
+      });
 });
+
